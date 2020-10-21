@@ -1,6 +1,6 @@
 @echo off 
-rem "hola amiga"
+rem "Comentarioo"
 cls
-prompt hola amiga
+prompt Un prompt
 ver
 md /? 
