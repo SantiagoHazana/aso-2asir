@@ -2,7 +2,8 @@
 
 :numero
 set /p num="Ingrese un numero: "
-:: falta comprobar que es un numero
+set /a check=%num% + 0
+if not %num%==%check% echo No es un numero && goto numero
 
 :inicio
 echo Menu
