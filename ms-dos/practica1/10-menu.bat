@@ -27,4 +27,4 @@ goto inicio
 :salir
 choice /m "Seguro que desea salir?"
 if errorlevel 1 goto inicio
-exit
+echo Adios

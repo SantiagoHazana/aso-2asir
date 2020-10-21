@@ -10,4 +10,4 @@ if errorlevel 1 echo "Es un directorio y este es su contenido" & dir %direc% & g
 if errorlevel 0 echo "Es un fichero"
 
 :fin
-pause
+echo Adios

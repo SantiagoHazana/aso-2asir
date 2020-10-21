@@ -4,12 +4,13 @@ if exist micole.dat (
 )
 goto fin
 
-:fin
-echo "El archivo no existe"
-
 :ordenar
 echo "El archivo existe"
 sort /r micole.dat
+goto salir
 
+:fin
+echo "El archivo no existe"
 
-
+:salir
+echo "Adios"

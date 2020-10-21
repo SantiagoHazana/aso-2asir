@@ -2,8 +2,8 @@
 if exist %1 goto mostrar
 
 choice /m "No existe el fichero, desea crearlo?"
-if errorlevel 1 goto create
-if errorlevel 0 goto fin
+if errorlevel 2 goto create
+if errorlevel 1 goto fin
 
 
 :mostrar

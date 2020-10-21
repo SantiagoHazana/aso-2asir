@@ -2,9 +2,7 @@
 if exist %1 (
 	goto ordenar
 )
-goto fin
 
-:fin
 echo "El archivo no existe"
 goto fin
 

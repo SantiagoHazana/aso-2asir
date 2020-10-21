@@ -37,7 +37,10 @@ if errorlevel 1 date /t
 goto inicio
 
 :show
+echo.
 type %1
+echo.
+echo.
 goto inicio
 
 :editor
