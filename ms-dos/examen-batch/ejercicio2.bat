@@ -11,14 +11,20 @@ echo.
 
 if %val%==listo goto menu
 
+:fichero
 type %val%>nul
+if errorlevel 1 goto directorio
 if errorlevel 0 set /a contadorFicheros=%contadorFicheros% + 1 && goto bucle
 
+:directorio
 dir %val%>nul
+if errorlevel 1 goto nada
 if errorlevel 0 set /a contadorDirectorios=%contadorDirectorios% + 1 && goto bucle
 
+:nada
 set /a contadorNada=%contadorNada% + 1 && goto bucle
 goto bucle
+
 
 set count=0
 :menu

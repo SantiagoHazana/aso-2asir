@@ -1,17 +1,34 @@
 @echo off
 :inicio
+if "%1"=="" (
+	echo "Menu 2"
+	echo "A. Abrir el editor de texto"
+	echo "B. Indicar la fecha u hora del sistema"
+	echo "C. Salir"
+
+	choice /m "Elija una opcion: " /c:ABC
+	if errorlevel 3 goto salir
+	if errorlevel 2 goto timeDate
+	if errorlevel 1 goto editor
+
+)
+
 echo.
 echo "Menu 1"
 echo "A. Abrir el editor de texto"
 echo "B. Mostrar el contenido de un fichero"
 echo "C. Indicar la fecha u hora del sistema"
 echo "D. Salir"
-
 choice /m "Elija una opcion: " /c:ABCD
 if errorlevel 4 goto salir
 if errorlevel 3 goto timeDate
 if errorlevel 2 goto show
 if errorlevel 1 goto editor
+
+
+
+
+
 
 :timeDate
 echo.
@@ -24,7 +41,6 @@ goto inicio
 echo.
 if "%1"=="" echo No se puede utilizar esta opcion, no se introdujo parametro && goto inicio
 type %1
-echo.
 goto inicio
 
 :editor
@@ -35,4 +51,4 @@ goto inicio
 
 :salir
 echo.
-echo "Adios"
+echo "Adios" 
