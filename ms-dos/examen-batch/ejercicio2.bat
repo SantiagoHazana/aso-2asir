@@ -37,12 +37,12 @@ echo D. Salir
 
 choice /m "Seleccione una opcion, debe realizar algo antes de salir: " /c:ABCD
 if errorlevel 4 goto salir
-if errorlevel 3 echo Se ingresaron %contadorNada% nadas && set /a count=%count% + 1 && goto menu
-if errorlevel 2 echo Se ingresaron %contadorDirectorios% directorios && set /a count=%count% + 1 && goto menu
-if errorlevel 1 echo Se ingresaron %contadorFicheros% ficheros && set /a count=%count% + 1 && goto menu
+if errorlevel 3 echo Se ingresaron %contadorNada% nadas && set /a count=1 && goto menu
+if errorlevel 2 echo Se ingresaron %contadorDirectorios% directorios && set /a count=1 && goto menu
+if errorlevel 1 echo Se ingresaron %contadorFicheros% ficheros && set /a count=1 && goto menu
 
 :salir
-echo.
+echo %count%
 if %count%==0 echo Debe realizar alguna accion && goto menu
 echo.
 echo Adios
