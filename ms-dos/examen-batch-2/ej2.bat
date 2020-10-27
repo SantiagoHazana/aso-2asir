@@ -45,6 +45,21 @@ for /L %%i in (%start%, 2, %end%) do (
 )
 goto menu
 
+:letters
+set /a contletras=%contletras%+1
+set /p palab=Introduce una palabra: 
+type %palab%>nul 
+if errorlevel 1 goto fichero
+if errorlevel 0 echo es un fichero no se puede realizar & goto menu
+
+:fichero
+dir %palab%>nul
+if errorlevel 1 goto nada
+if errorlevel 0 echo es un directorio no se puede realizar & goto menu
+
+:nada 
+dir C:\ | find /i /c "%palab%" & goto menu
+
 
 :salir
 choice /m "Seguro que desea salir?"
