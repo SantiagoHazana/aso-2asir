@@ -9,7 +9,7 @@ goto parameter
 
 
 :noParameter
-if %tries%==%maxTries% exit
+if %tries%==%maxTries% goto salir
 set /p userPass="Enter password: "
 if %userPass%==%pass% call operations.bat && goto salir
 set /a tries=%tries%+1

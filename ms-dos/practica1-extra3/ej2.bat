@@ -26,7 +26,7 @@ sort /+%col% %file% > %file2%
 goto menu
 
 :finder
-if %file%=="" (
+if "%file%"=="" (
     :init
     set /p file="Ingrese un fichero valido: "
     type %file%>nul
