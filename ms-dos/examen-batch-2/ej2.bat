@@ -30,13 +30,13 @@ set /a countOdd=%countOdd%+1
 set /p start="Ingrese desde que numero se comenzara: "
 set /p end="Ingrese hasta que numero: "
 
-:: Manera rosalia
+:: Manera 1
 @REM set /a res=%start%/2
 @REM set /a check=%res%*2
 
 @REM if %start%==%check% set /a start=%start%+1
 
-:: Manera semi coherente
+:: Manera 2
 set /a mod=%start% %%2
 if %mod%==0 set /a start=%start% + 1 
 
