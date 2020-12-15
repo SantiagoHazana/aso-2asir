@@ -51,6 +51,10 @@ set usedir=1
 :askdir
 if %countdir%==%num% goto menu
 set /p dire="Ingrese un directorio: "
+type %dire%>nul
+if errorlevel 1 goto continue
+goto askdir
+:continue
 dir %dire%>nul
 if errorlevel 1 goto askdir
 set /a countdir=%countdir% + 1
