@@ -43,6 +43,8 @@ set countdir=0
 if not %usedir%==0 (
     set /p num="Ingrese un numero: "
     set /a check=%num% + 0
+    echo %num%
+    echo %check%
     if not %check%==%num% goto direct
 )
 set usedir=1
