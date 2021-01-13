@@ -10,6 +10,7 @@ elif [ ! -e $direct ]
 then
     echo
     echo El directorio no existe, intentelo nuevamente
+    exit
 fi
 
 echo Se copiara el fichero $fich en el directorio $direct
