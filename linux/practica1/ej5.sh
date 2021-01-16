@@ -6,7 +6,7 @@ then
     echo
     echo El fichero no existe, intentelo nuevamente
     exit
-elif [ ! -e $direct ]
+elif [ ! -d $direct ]
 then
     echo
     echo El directorio no existe, intentelo nuevamente
