@@ -1,5 +1,5 @@
-echo Ingrese el fichero a copiar ; read fich
-echo Ingrese el directorio donde copiarlo ; read direct
+echo Ingrese el fichero a copiar; read fich
+echo Ingrese el directorio donde copiarlo; read direct
 
 if [ ! -e $fich ]
 then
@@ -13,11 +13,16 @@ then
     exit
 fi
 
-echo Se copiara el fichero $fich en el directorio $direct
-cp $fich $direct
-if [ $? -eq 0 ]
+if [ -r $fich ]
 then
-    echo Se copio exitosamente el fichero en el directorio
+    echo Se copiara el fichero $fich en el directorio $direct
+    cp $fich $direct
+    if [ $? -eq 0 ]
+    then
+        echo Se copio exitosamente el fichero en el directorio
+    else
+        echo Error al copiar el fichero en el directorio
+    fi
 else
-    echo Error al copiar el fichero en el directorio
+    echo No se tiene permiso de lectura
 fi
