@@ -12,5 +12,33 @@ then
     echo Ingresaste 3 veces mal la contrasena
     exit
 fi
-
+echo
 echo Permiso para entrar!!!
+echo
+contador=0;
+resp=""
+while [ $contador -lt 5 -a $resp != "no" ]
+do
+    echo
+    echo Introduce un nombre; read nombre
+    numFila=`wc -l < alumnos.txt`
+    numFila=$(($numFila + 1))
+    echo $nombre:$numFila: >> alumnos.txt
+    echo
+    echo Desea continuar? si/no; read resp
+    contador=$(($contador + 1))
+done
+
+opc=""
+until [ $opc = "c" ]
+do
+    echo
+    echo a. Nombres
+    echo b. Clave
+    echo c. Salir
+    echo
+    echo Seleccione una opcion.; read opc 
+
+    
+    
+done
