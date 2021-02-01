@@ -8,3 +8,61 @@
 # un mensaje de éxito, dando al usuario la posibilidad de mostrarlo por pantalla (hay que 
 # mostrar su contenido de forma correcta); y en caso contrario, nos mostrará el valor introducido 
 # y nos indicará su nula existencia.
+
+echo introduce una palabra; read var
+echo has introducido un fichero o directorio?; read var2
+if [ -f $var -a "$var2"="fichero" ]
+then
+    echo el usuario ha introducido un fichero
+elif [ -d $var -a "$var2"="directorio" ]
+then
+    echo el usuario ha introducido un directorio
+elif [ -e $var ]
+then
+    echo Existe lo introducido en el directorio actual
+else
+    echo No existe en el directorio
+
+    echo donde quieres buscarlo? disco/directorio; read resp
+    if [ "$resp" = "disco" ]
+    then
+        # aca iria el find para buscar en todo el disco
+        if [ -f $var ] # el -f va con el resultado del find
+        then
+            echo has encontrado el fichero, desea visualizarlo? si/no; read resp1
+            if [ "$resp1" = "si" ]
+            then 
+                cat $var # seria cat de lo encontrado con el find
+            fi
+        elif [ -d $var ] # el -d iria con el resultado del find
+        then
+            echo has encontrado el directorio, desea visualizarlo? si/no; read resp1
+            if [ "$resp1" = "si" ]
+            then 
+                ls $var # el ls seria de lo encontrado del find
+            fi
+        else    
+            echo no existe nada con ese nombre  
+        fi
+    elif [ "$resp" = "directorio" ]
+    then
+        # falta pedirle al usuario el directorio donde buscar
+        # find en el directorio dado por el usuario
+        if [ -f $var ]
+        then 
+            echo has encontrado el fichero, desea ver su contenido? si/no; read resp1
+            if [ "$resp1" = "si" ]
+            then
+                cat $var
+            fi
+        elif [ -d $var ]
+        then 
+            echo has encontrdo el directorio, desea ver su contenido? si/no; read resp1
+            if [ "$resp1" = "si" ]
+            then 
+                ls $var
+            fi
+        fi 
+    fi
+    
+fi
