@@ -1,4 +1,2 @@
-hola
-manu
-como
-estas
+var=`find . -name "repaso.sh"`
+echo $var

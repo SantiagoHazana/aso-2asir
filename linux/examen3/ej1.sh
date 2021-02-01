@@ -1,4 +1,4 @@
-contra=`cat password.txt`
+contra=`cat password.txt | head -1`
 aciertosLineas=0
 aciertosFicheros=0
 
@@ -36,15 +36,20 @@ showResults(){
     echo
 }
 
-if [ $# -eq 0 -o "$1" != "$contra" ]
-then
-    echo Contraseña incorrecta, intente nuevamente; read nueva
-    if [ $nueva != $contra ]
+checkPassword(){
+    if [ $# -eq 0 -o "$1" != "$contra" ]
     then
-        echo Contraseña incorrecta, Adios!
-        exit
+        echo Contraseña incorrecta, intente nuevamente; read nueva
+        if [ $nueva != $contra ]
+        then
+            echo Contraseña incorrecta, Adios!
+            exit
+        fi
     fi
-fi
+}
+
+checkPassword
+
 
 resp="s"
 until [ "$resp" = "c" -o "$resp" = "C" ]
@@ -113,12 +118,12 @@ do
             echo No igresaste un directorio
             continue
         fi
-        numFilas=`ls $first | wc -l`
+        numFicheros=`ls $first -p | grep -v / | wc -l`
         echo Cuantos ficheros tiene el directorio?; read numDir
-        if [ $numDir = $numFilas ]
+        if [ $numDir = $numFicheros ]
         then
             echo
-            echo Correcto! Tiene $numFilas
+            echo Correcto! Tiene $numFicheros
             aciertosFicheros=$(($aciertosFicheros + 1))
         else
             echo

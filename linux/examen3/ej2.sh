@@ -18,7 +18,27 @@ directorio(){
 }
 
 numeros(){
-    echo Numero $1
+    # echo
+    # echo a. Divisores
+    # echo b. Potencias
+    # echo
+    # echo Seleccione una opcion; read opc
+    # if [  ]
+
+    contadorAciertos=0
+    until [ $contadorAciertos -eq 3 ]
+    do
+        echo Adivine un divisor; read divisor
+        res=`echo "$1 % $divisor" | bc`
+        if [ $res -eq 0 ]
+        then
+            echo Es un divisor!
+            contadorAciertos=$(($contadorAciertos + 1))
+        else
+            echo No es un divisor
+        fi
+    done
+    echo Adivinaste los 3 divisores
 }
 
 palabra(){
