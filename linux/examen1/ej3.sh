@@ -16,3 +16,29 @@ then
         exit
 fi
 
+# echo Ingrese un numero de filas a eliminar de arriba; read num
+# filas=`wc -l < $1`
+# filas=$(($filas + 1))
+# fila=$(($filas - $num))
+# tail -$fila $1 > temp.txt
+# mv temp.txt $1
+
+
+# echo Ingrese un numero de filas a eliminar de arriba; read num
+# filas=`wc -l < $1`
+# filas=$(($filas + 1))
+# fila=$(($filas - $num))
+# head -$fila $1 > temp.txt
+# mv temp.txt $1
+
+# echo Ingrese un numero de filas a eliminar de arriba; read num1
+# echo Ingrese un numero de filas a eliminar de abajo; read num2
+# filas=`wc -l < $1`
+# filas=$(($filas - $num1 + 1))
+# tail -$fila $1 > temp.txt
+# mv temp.txt $1
+
+
+# filas=$(($fila-$num2))
+# head -$fila $1 > temp.txt
+# mv temp.txt $1
