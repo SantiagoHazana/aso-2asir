@@ -14,35 +14,72 @@ fichero(){
 }
 
 directorio(){
-    echo Directorio $1
+    menor=`find . -maxdepth 1 -type f -printf '%s\n' | sort -n | head -1`
+    echo
+    echo Adivine el tamaño del fichero mas chico; read adiv
+    echo
+    if [ $menor -eq $adiv ]
+    then
+        echo Adivinaste!
+    else
+        echo No adivinaste
+    fi
 }
 
 numeros(){
-    # echo
-    # echo a. Divisores
-    # echo b. Potencias
-    # echo
-    # echo Seleccione una opcion; read opc
-    # if [  ]
-
-    contadorAciertos=0
-    until [ $contadorAciertos -eq 3 ]
+    opc="z"
+    while [ $opc != "a" -a $opc != "b" ]
     do
-        echo Adivine un divisor; read divisor
-        res=`echo "$1 % $divisor" | bc`
-        if [ $res -eq 0 ]
+        echo
+        echo a. Divisores
+        echo b. Potencias
+        echo
+        echo Seleccione una opcion; read opc
+        echo
+        if [ ! $opc ]
         then
-            echo Es un divisor!
-            contadorAciertos=$(($contadorAciertos + 1))
-        else
-            echo No es un divisor
+            opc="z"
+            continue
         fi
+
+        if [ $opc = "a" ]
+        then
+            contadorAciertos=0
+            until [ $contadorAciertos -eq 3 ]
+            do
+                echo Adivine un divisor; read divisor
+                res=`echo "$1 % $divisor" | bc`
+                if [ $res -eq 0 ]
+                then
+                    echo Es un divisor!
+                    contadorAciertos=$(($contadorAciertos + 1))
+                else
+                    echo No es un divisor
+                fi
+            done
+            echo Adivinaste los 3 divisores
+        elif [ "$opc"="b" ]
+        then
+            echo
+            echo $1 ^ $2 = $(($1**$2))
+            echo
+        fi
+
     done
-    echo Adivinaste los 3 divisores
+
+    
 }
 
 palabra(){
-    echo Palabra $1
+    echo
+    echo Adivine cuantas veces aparece la palabra dentro de los ficheros del directorio actual; read num
+    count=`find . -type f -exec grep -o $1 {} \; | wc -l`
+    if [ $count -eq $num ]
+    then
+        echo Adivinaste!
+    else
+        echo No adivinaste ":("
+    fi
 }
 
 
@@ -56,7 +93,7 @@ do
         directorio $algo
     elif [ "$algo" -eq "$algo" ] 2> /dev/null;
     then
-        numeros $algo
+        numeros $algo $#
     else
         palabra $algo
     fi
