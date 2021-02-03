@@ -61,22 +61,17 @@ do
     then
         echo
         echo Ingrese el nombre del fichero a buscar; read fich
-        first=`find /Users/shazana/projects -name "$fich" 2> /dev/null | head -1 `
-        if [ "$first" = "" ]
+        first=`find /home -name "$fich" -type f 2> /dev/null | head -1 `
+        if [ $first ]
         then
             echo
             echo Intentelo nuevamente; read fich
-            first=`find /Users/shazana/projects -name "$fich" 2> /dev/null | head -1 `
-            if [ "$first" = "" ]
+            first=`find /home -name "$fich" -type f 2> /dev/null | head -1 `
+            if [ $first ]
             then
                 echo No ingresaste algo correcto
                 continue
             fi
-        fi
-        if [ ! -f $first ]
-        then
-            echo No igresaste un fichero
-            continue
         fi
         echo
         echo Tiene filas pares o impares?; read parImp
@@ -101,26 +96,21 @@ do
     then
         echo
         echo Ingrese el nombre del directorio a buscar; read dir
-        first=`find /Users/shazana/projects -name "$dir" 2> /dev/null | head -1 `
-        if [ "$first" = "" ]
+        first=`find /home -name "$dir" -type d 2> /dev/null | head -1`
+        if [ $first ]
         then
             echo
             echo Intentelo nuevamente; read dir
-            first=`find /Users/shazana/projects -name "$dir" 2> /dev/null | head -1 `
-            if [ "$first" = "" ]
+            first=`find /Users/shazana/projects -name "$dir" -type d 2> /dev/null | head -1`
+            if [ $first ]
             then
                 echo No ingresaste algo correcto
                 continue
             fi
         fi
-        if [ ! -d $first ]
-        then
-            echo No igresaste un directorio
-            continue
-        fi
         numFicheros=`ls $first -p | grep -v / | wc -l`
         echo Cuantos ficheros tiene el directorio?; read numDir
-        if [ $numDir = $numFicheros ]
+        if [ $numDir -eq $numFicheros ]
         then
             echo
             echo Correcto! Tiene $numFicheros
