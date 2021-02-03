@@ -14,7 +14,7 @@ fichero(){
 }
 
 directorio(){
-    menor=`find . -maxdepth 1 -type f -printf '%s\n' | sort -n | head -1`
+    menor=`find $1 -maxdepth 1 -type f -printf '%s\n' | sort -n | head -1`
     echo
     echo Adivine el tamaño del fichero mas chico; read adiv
     echo
