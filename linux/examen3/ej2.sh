@@ -73,7 +73,7 @@ numeros(){
 palabra(){
     echo
     echo Adivine cuantas veces aparece la palabra dentro de los ficheros del directorio actual; read num
-    count=`find . -type f -exec grep -o $1 {} \; | wc -l`
+    count=`find . -maxdepth 1 -type f -exec grep -o $1 {} \; | wc -l`
     if [ $count -eq $num ]
     then
         echo Adivinaste!
