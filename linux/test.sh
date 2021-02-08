@@ -1,7 +1,8 @@
-mv $1 $2 2> /dev/null
-if [ $? -eq 0 ]
+echo Ingrese un numero; read num
+
+if [ "$num" -eq "$num" ] 2> /dev/null
 then
-    echo Se movio exitosamente $1 a la carpeta $2
+    echo Es un numero
 else
-    echo No se pudo mover, alguno no existe
+    echo No es un numero
 fi
