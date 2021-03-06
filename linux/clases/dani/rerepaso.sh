@@ -79,21 +79,91 @@
 # fi
 
 
-# Ejercicio
-echo Ingrese un numero
-read num
+# # Ejercicio
+# echo Ingrese un numero
+# read num
 
-if [ "$num" -eq "$num" ] 2> /dev/null
-then
-    parimp=`echo "$num%2" | bc`
-    if [ $parimp -eq 0 ]
-    then
-        res=`echo "scale=2; $num/3" | bc`
-        echo $res
-    else
-        echo $(($num**2))
-    fi
-else
-    echo No es un numero
-fi
+# if [ "$num" -eq "$num" ] 2> /dev/null
+# then
+#     parimp=`echo "$num%2" | bc`
+#     if [ $parimp -eq 0 ]
+#     then
+#         res=`echo "scale=2; $num/3" | bc`
+#         echo $res
+#     else
+#         echo $(($num**2))
+#     fi
+# else
+#     echo No es un numero
+# fi
 
+# Bucles
+
+# contador=0
+# while [ $contador -lt 5 ]
+# do
+#     echo $contador
+#     contador=$(($contador + 1))
+# done
+
+# contador=0
+
+# until [ $contador -ge 5 ]
+# do
+#     echo $contador
+#     contador=$(($contador + 1))
+# done
+
+# for var in $*
+# do
+#     echo $var
+# done
+
+# for i in {0..4}
+# do
+#     echo $i
+# done
+
+# echo Ingrese el nombre de un fichero para buscarlo
+# read fich
+
+# var=`find /home -name $fich`
+# # si me quiero quedar con el primer resultado, hago el comando head -1
+# var=`find /home -name $fich | head -1`
+# # si me quiero quedar con el ultimo resultado, hago el comando tail -1
+# var=`find /home -name $fich | tail -1`
+# cat $var
+
+# # Para buscar solo ficheros, agregamos -type f y para directorios -type d
+# find /home -name "algo" -type f
+
+# numLineas=`wc -l < rerepaso.sh`
+# numLineas=$(($numLineas + 1))
+# echo El fichero rerepaso tiene $numLineas lineas
+# echo la mitad superior es
+# echo ------------------------------------------------------------------------------------
+# numLineasSup=$(($numLineas/2))
+# head -$numLineasSup rerepaso.sh
+# echo
+# echo La mitad inferior es
+# echo ------------------------------------------------------------------------------------
+# tail -$numLineasSup rerepaso.sh
+
+# # Escribir 5 nombres de persona en un fichero
+# contador=0
+# until [ $contador -eq 5 ]
+# do
+#     echo Ingrese nombres de personas
+#     read persona
+#     echo $persona >> personas.txt
+#     contador=$(($contador+1))
+# done
+
+# Eliminar la mitad inferior de un fichero
+fich="personas.txt"
+numLineas=`wc -l < $fich`
+numLineas=$(($numLineas + 1))
+numLineasSup=$(($numLineas/2))
+head -$numLineasSup $fich > temp.txt
+cat temp.txt > $fich
+rm temp.txt
