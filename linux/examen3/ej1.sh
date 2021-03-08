@@ -62,12 +62,12 @@ do
         echo
         echo Ingrese el nombre del fichero a buscar; read fich
         first=`find /home -name "$fich" -type f 2> /dev/null | head -1 `
-        if [ $first ]
+        if [ ! $first ]
         then
             echo
             echo Intentelo nuevamente; read fich
             first=`find /home -name "$fich" -type f 2> /dev/null | head -1 `
-            if [ $first ]
+            if [ ! $first ]
             then
                 echo No ingresaste algo correcto
                 continue

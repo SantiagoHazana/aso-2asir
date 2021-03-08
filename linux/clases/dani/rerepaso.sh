@@ -159,11 +159,22 @@
 #     contador=$(($contador+1))
 # done
 
-# Eliminar la mitad inferior de un fichero
-fich="personas.txt"
-numLineas=`wc -l < $fich`
-numLineas=$(($numLineas + 1))
-numLineasSup=$(($numLineas/2))
-head -$numLineasSup $fich > temp.txt
-cat temp.txt > $fich
-rm temp.txt
+# # Eliminar la mitad inferior de un fichero
+# fich="personas.txt"
+# numLineas=`wc -l < $fich`
+# numLineas=$(($numLineas + 1))
+# numLineasSup=$(($numLineas/2))
+# head -$numLineasSup $fich > temp.txt
+# cat temp.txt > $fich
+# rm temp.txt
+
+
+# Comando grep, sirve para buscar palabras dentro de un fichero
+grep "palabra" fichero.txt # buscara si aparece "palabra" dentro de fichero, devuelve las lineas que tienen esa palabra
+grep -i "palabra" fichero.txt # busca y no diferencia entre mayusculas y minusculas
+grep -c "palabra" fichero.txt # devuelve el numero de veces que aparece palabra dentro de fichero
+grep -v "palabra" fichero.txt # devuelve todas las lineas donde NO aparece "palabra"
+grep -c -v "palabra" fichero.txt # me da el numero de lineas que NO tienen "palabra"
+
+# comando ls, muestra el contenido del directorio
+ls -p # agrega a los directorio una / al final, asi pueden ser diferenciados
