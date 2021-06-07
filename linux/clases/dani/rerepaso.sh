@@ -70,6 +70,7 @@
 # echo La division con decimales es $resultado
 
 # # Queremos saber si un numero es par o impar
+# num1=13
 # resultado=`echo "$num1%2" | bc`
 # if [ $resultado -eq 0 ]
 # then
@@ -169,12 +170,13 @@
 # rm temp.txt
 
 
-# Comando grep, sirve para buscar palabras dentro de un fichero
-grep "palabra" fichero.txt # buscara si aparece "palabra" dentro de fichero, devuelve las lineas que tienen esa palabra
-grep -i "palabra" fichero.txt # busca y no diferencia entre mayusculas y minusculas
-grep -c "palabra" fichero.txt # devuelve el numero de veces que aparece palabra dentro de fichero
-grep -v "palabra" fichero.txt # devuelve todas las lineas donde NO aparece "palabra"
-grep -c -v "palabra" fichero.txt # me da el numero de lineas que NO tienen "palabra"
+# # Comando grep, sirve para buscar palabras dentro de un fichero
+# grep "palabra" fichero.txt # buscara si aparece "palabra" dentro de fichero, devuelve las lineas que tienen esa palabra
+# grep -i "palabra" fichero.txt # busca y no diferencia entre mayusculas y minusculas
+# grep -c "palabra" fichero.txt # devuelve el numero lineas donde aparece "palabra" dentro de fichero
+# grep -v "palabra" fichero.txt # devuelve todas las lineas donde NO aparece "palabra"
+# grep -c -v "palabra" fichero.txt # me da el numero de lineas que NO tienen "palabra"
+# grep -e "palabra" -e "palabra2" fichero.txt # busca "palabra" y "palabra2" dentro del fichero, devolviendo las lineas
 
-# comando ls, muestra el contenido del directorio
-ls -p # agrega a los directorio una / al final, asi pueden ser diferenciados
+# # comando ls, muestra el contenido del directorio
+# ls -p # agrega a los directorio una / al final, asi pueden ser diferenciados

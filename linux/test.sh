@@ -1,8 +1,10 @@
-echo Ingrese un numero; read num
+echo Ingrese un fichero; read fich
 
-if [ "$num" -eq "$num" ] 2> /dev/null
-then
-    echo Es un numero
-else
-    echo No es un numero
-fi
+until [ -f $fich ]
+do
+    echo Ingrese un fichero; read fich
+done
+echo
+echo ----------Contenido del fichero------------
+echo
+cat $fich

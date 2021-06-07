@@ -31,7 +31,7 @@
 
 # # Solo puedo ingresar si pongo bien la contrasena
 # contrasena="2asir"
-# contadorIntentos=0;
+# contadorIntentos=0
 # echo Ingrese la contrasena; read contrasenaUsuario
 
 # until [ $contadorIntentos -ge 2 -o $contrasena = $contrasenaUsuario ]

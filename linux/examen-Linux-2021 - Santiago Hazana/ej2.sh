@@ -55,6 +55,11 @@ palabras(){
             echo
             echo Ingreso un directorio o nada, no se contabilizara
             echo
+        elif [ "$var" -eq "$var" ]
+        then
+            echo
+            echo Ingreso un numero, no se contabilizara
+            echo
         else
             echo $var >> palabras.dat
         fi

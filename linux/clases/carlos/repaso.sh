@@ -21,15 +21,6 @@
 #     echo El numero es positivo
 # fi
 
-# find /home -name "calc.sh" > /dev/null
-
-# if [ $? -eq 0 ]
-# then
-#     echo Se encontro el fichero
-# else
-#     echo No se encontro el fichero
-# fi
-
 # echo Ingrese una palabra; read palabra
 
 # if [ -f $palabra ]
@@ -44,14 +35,14 @@
 
 # echo Bucle While
 
-# num=0
-# while [ $num -lt 10 ]
+# num=1
+# while [ $num -le 10 ]
 # do
 #     echo $num
 #     num=$(($num + 1))
 # done
 
-# echo
+# # echo
 # echo Bucle Until
 
 # num=0
@@ -69,7 +60,7 @@
 #     echo $i
 # done
 
-# #bucle foreach que recorre un rango de valores
+# #bucle foreach que recorre un rango de valores, ambos incluidos
 # for i in $(seq 0 9)
 # do
 #     echo $i
@@ -87,12 +78,18 @@
 #     echo $i
 # done
 
+# echo "Bucle for que muestra los pares entre 0 y 10"
+# for ((i=0; i<10; i+=2)) 
+# do
+#     echo $i
+# done
+
 # ejecutar algo hasta que se indique lo contrario
 
 # resp="y"
-# until [ $resp = "n" -o $resp = "N" -o $resp = "no" -o $resp = "No"]
+# until [ $resp = "n" -o $resp = "N" -o $resp = "no" -o $resp = "No" ]
 # do
-#     echo 
+#     echo
 #     whoami
 #     pwd
 #     echo Desea repetirlo? N=No, Y=Si
