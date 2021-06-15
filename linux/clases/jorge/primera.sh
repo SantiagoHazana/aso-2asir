@@ -122,24 +122,24 @@
 #     fi
 # done
 
-# # Pedir contrasena para ingresar, se tiene 3 intentos. Si se entra, me muestra el menu
-# contra="jorge"
-# contadorIntentos=1
-# contraUsuario="z"
-# until [ "$contraUsuario" = "$contra" ]
-# do
-#     echo Ingrese la contrasena
-#     read contraUsuario
+# Pedir contrasena para ingresar, se tiene 3 intentos. Si se entra, me muestra el menu
+contra="jorge"
+contadorIntentos=1
+contraUsuario="z"
+until [ "$contraUsuario" = "$contra" ]
+do
+    echo Ingrese la contrasena
+    read contraUsuario
 
-#     if [ $contadorIntentos -eq 3 ]
-#     then
-#         echo 3 intentos fallidos, adios!
-#         exit
-#     fi
-#     contadorIntentos=$(($contadorIntentos + 1))
-# done
+    if [ $contadorIntentos -eq 3 ]
+    then
+        echo 3 intentos fallidos, adios!
+        exit
+    fi
+    contadorIntentos=$(($contadorIntentos + 1))
+done
 
-# echo Ingresaste!!!
+echo Ingresaste!!!
 
 # respuesta=""
 # until [ "$respuesta" = "c" -o "$respuesta" = "C" ]
